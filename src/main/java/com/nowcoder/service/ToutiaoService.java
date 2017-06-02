@@ -1,4 +1,4 @@
-package com.nowcoder.toutiao.service;
+package com.nowcoder.service;
 
 import org.springframework.stereotype.Service;
 

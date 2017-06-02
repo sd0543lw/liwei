@@ -1,8 +1,8 @@
-package com.nowcoder.toutiao.controller;
+package com.nowcoder.controller;
 
 
-import com.nowcoder.toutiao.aspect.LogAspect;
-import com.nowcoder.toutiao.service.ToutiaoService;
+import com.nowcoder.aspect.LogAspect;
+import com.nowcoder.service.ToutiaoService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,12 +31,12 @@ public class IndexController {
     @Autowired                 //对象注入(该类前有一个@Service标志)
     private ToutiaoService toutiaoService;
 //    @RequestMapping("/")     //指定哪个url由这个方法处理
-    @RequestMapping(path = {"/","/index"})   //表明"/"和"/index"这两个路径都能访问该方法
-    @ResponseBody            //指定返回是一个body
-    public String index(HttpSession session){
-        logger.info("visit index");
-        return ("Hello NowCoder  "+session.getAttribute("msg")+toutiaoService.say());
-    }
+//    @RequestMapping(path = {"/","/index"})   //表明"/"和"/index"这两个路径都能访问该方法
+//    @ResponseBody            //指定返回是一个body
+//    public String index(HttpSession session){
+//        logger.info("visit index");
+//        return ("Hello NowCoder  "+session.getAttribute("msg")+toutiaoService.say());
+//    }
     @RequestMapping(value = "/proflie/{groupId}/{userId}")       //括号中的value和path是一个意思，都可以。或者直接不写
     @ResponseBody
     public String profile(@PathVariable("groupId") String groupId,   //url路径中的参数用@PathVariable注解

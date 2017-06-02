@@ -1,4 +1,4 @@
-package com.nowcoder.toutiao.model;
+package com.nowcoder.model;
 
 import org.springframework.stereotype.Component;
 

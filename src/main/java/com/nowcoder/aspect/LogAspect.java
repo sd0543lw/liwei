@@ -1,9 +1,7 @@
-package com.nowcoder.toutiao.aspect;
+package com.nowcoder.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
-import org.springframework.stereotype.Service;
 
 
 /**
