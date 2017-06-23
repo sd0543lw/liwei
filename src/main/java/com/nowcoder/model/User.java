@@ -1,8 +1,5 @@
 package com.nowcoder.model;
 
-
-import org.springframework.stereotype.Component;
-
 /**
  * Created by liwei on 17/5/22.
  */

@@ -21,3 +21,12 @@ CREATE TABLE `news` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `login_ticket`;
+CREATE TABLE `login_ticket` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `ticket` VARCHAR(45) NOT NULL COMMENT 'server给client下发的token',
+  `expired` DATETIME NOT NULL COMMENT 'token过期时间',
+  `status` INT NULL DEFAULT 0 COMMENT '0-正常，1-删除',
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `ticket_UNIQUE` (`ticket` ASC));

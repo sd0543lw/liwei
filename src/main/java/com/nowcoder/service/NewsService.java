@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by liwei on 17/5/27.
  */
-@Service
+@Service("newsService")
 public class NewsService {
     @Autowired
     private NewsDAO newsDAO;

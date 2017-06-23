@@ -110,29 +110,30 @@
             <div class="jscroll-inner">
                 <div class="daily">
 
-                    #set($cur_date = '')
+                 <!--   #set($cur_date = '')
                     #foreach($vo in $vos)
                     #if ($cur_date != $date.format('yyyy-MM-dd', $vo.news.createdDate))
                         #if ($foreach.index > 0)
                             </div> ## 上一个要收尾
                         #end
                         #set($cur_date = $date.format('yyyy-MM-dd', $vo.news.createdDate))
+                        -->
                     <h3 class="date">
                         <i class="fa icon-calendar"></i>
                         <span>头条资讯 &nbsp; $date.format('yyyy-MM-dd', $vo.news.createdDate)</span>
                     </h3>
 
                     <div class="posts">
-                    #end
+                        #foreach($vo in $vos)
                         <div class="post">
                             <div class="votebar">
                                 <button class="click-like up" aria-pressed="false" title="赞同"><i class="vote-arrow"></i><span class="count">$!{vo.news.likeCount}</span></button>
                                 <button class="click-dislike down" aria-pressed="true" title="反对"><i class="vote-arrow"></i>
                                 </button>
                             </div>
-                            <div class="content" data-url="http://nowcoder.com/posts/5l3hjr">
-                                <div >
-                                    <img class="content-img" src="$!{vo.news.image}" alt="">
+                            <div class="content" data-url="$!{vo.news.link}">
+                                <div class="content-img">
+                                    <img src="$!{vo.news.image}" alt="">
                                 </div>
                                 <div class="content-main">
                                     <h3 class="title">
@@ -165,19 +166,14 @@
 
                             <div class="subject-name">来自 <a href="/user/$!{vo.user.id}/">$!{vo.user.name}</a></div>
                         </div>
-
+                        #end
                         <!--
                         <div class="alert alert-warning subscribe-banner" role="alert">
                           《头条八卦》，每日 Top 3 通过邮件发送给你。      <a class="btn btn-info btn-sm pull-right" href="http://nowcoder.com/account/settings">立即订阅</a>
                         </div>
                         -->
-                    #if ($foreach.count == $vos.size()) ##最后有个元素要收尾
+
                     </div>
-                    #end
-
-                    #end
-
-
                 </div>
             </div>
         </div>
@@ -227,4 +223,5 @@
   </script>
 
 
-</body></html>
+</body>
+</html>

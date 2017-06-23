@@ -16,11 +16,11 @@ import java.util.List;
 @Repository
 public interface NewsDAO {
     String TABLE_NAME = "news";
-    String INSERT_FIELDS = " title, link, image, like_count, comment_count, created_date, user_id ";
+    String INSERT_FIELDS = " title, link, image, like_count, comment_count, created_date, user_id ";  //这些key需要与表中字段完全一致
     String SELECT_FIELDS = " id, " + INSERT_FIELDS;
 
     @Insert({"insert into ", TABLE_NAME, "(", INSERT_FIELDS,
-            ") values (#{title},#{link},#{image},#{likeCount},#{commentCount},#{createdDate},#{userId})"})
+            ") values (#{title},#{link},#{image},#{likeCount},#{commentCount},#{createdDate},#{userId})"})   //这些key需要与News类中的字段完全一致
     int addNews(News news);
 
     @Select({"select ", SELECT_FIELDS , " from ", TABLE_NAME, " where id=#{id}"})
@@ -32,7 +32,7 @@ public interface NewsDAO {
     @Update({"update ", TABLE_NAME, " set like_count = #{likeCount} where id=#{id}"})
     int updateLikeCount(@Param("id") int id, @Param("likeCount") int likeCount);
 
-    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME , " where user_id=#{userId} limit #{offset},#{limit}"})
+    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME , " where user_id=#{userId}  ORDER BY id DESC limit #{offset},#{limit}"})
     List<News> selectByUserIdAndOffset(@Param("userId") int userId, @Param("offset") int offset,
                                        @Param("limit") int limit);
 }
